@@ -1,0 +1,9 @@
+version: 2
+
+sources:
+  - name: staging
+    schema: staging
+    description: Interfaces brutes chargées depuis la zone landing (1 table par interface).
+    tables:
+      - name: omega_vols
+        description: Vols programmés et réalisés (application OMEGA).

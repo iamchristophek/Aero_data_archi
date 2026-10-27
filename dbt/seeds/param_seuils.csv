@@ -1,0 +1,2 @@
+code_parametre,valeur,description
+SEUIL_PONCTUALITE_MIN,15,Retard maximal (minutes) pour considérer un vol à l'heure

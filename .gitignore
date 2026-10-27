@@ -1,0 +1,11 @@
+.env
+.venv/
+__pycache__/
+*.pyc
+data/landing/*
+!data/landing/.gitkeep
+dbt/target/
+dbt/dbt_packages/
+dbt/logs/
+.user.yml
+*.pbix.bak

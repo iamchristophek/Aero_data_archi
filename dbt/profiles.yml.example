@@ -1,0 +1,12 @@
+aero_data_archi:
+  target: dev
+  outputs:
+    dev:
+      type: postgres
+      host: "{{ env_var('POSTGRES_HOST', 'localhost') }}"
+      port: "{{ env_var('POSTGRES_PORT', '5432') | int }}"
+      user: "{{ env_var('POSTGRES_USER', 'aero') }}"
+      password: "{{ env_var('POSTGRES_PASSWORD', 'aero') }}"
+      dbname: "{{ env_var('POSTGRES_DB', 'aero_dwh') }}"
+      schema: public
+      threads: 4

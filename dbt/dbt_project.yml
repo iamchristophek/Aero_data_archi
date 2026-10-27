@@ -1,0 +1,28 @@
+name: aero_data_archi
+version: "0.1.0"
+config-version: 2
+profile: aero_data_archi
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+
+models:
+  aero_data_archi:
+    staging:
+      +schema: staging
+      +materialized: view
+    raw_vault:
+      +schema: raw_vault
+      +materialized: incremental
+    business_vault:
+      +schema: business_vault
+      +materialized: table
+    marts:
+      +schema: gold
+      +materialized: table
+
+seeds:
+  aero_data_archi:
+    +schema: referentiels

@@ -1,0 +1,25 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: aero_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-aero}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-aero}
+      POSTGRES_DB: ${POSTGRES_DB:-aero_dwh}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+      - ./sql/init:/docker-entrypoint-initdb.d:ro
+
+  metabase:
+    image: metabase/metabase:v0.50.0
+    container_name: aero_metabase
+    ports:
+      - "3000:3000"
+    depends_on:
+      - postgres
+    profiles: ["viz"]
+
+volumes:
+  pg_data:
